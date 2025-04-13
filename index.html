@@ -353,14 +353,10 @@
 <!-- 工具功能概覽（初始隱藏） -->
 <div id="overviewContainer" class="box" style="display: none;">
     <h2>功能概覽</h2>
-    <img src="https://i.ibb.co/Ngt8D5xm/image.jpg" alt="功能概覽圖片" style="max-width:100%; height:auto; margin-bottom:10px;">
 
-<audio controls style="width: 100%;">
-  <source 
-    src="https://pouch.jumpshare.com/preview/qycDjEfSkqL5r2MXoBh3E9cZiO6FjDp8eHTCWFi_S6PzYOqVSQgZP6FEsyTIFgewsYUkJYyp8MuL2JP6sV7bHblFusWv_NMcZtmYNTt5LzQdfTRIRk-ygIwR9tGiPkb0HKQ6w9Fuy69ClWDk044Bz26yjbN-I2pg_cnoHs_AmgI.mp3" 
-    type="audio/mpeg">
-  您的瀏覽器不支援音頻播放
-</audio>
+<div style="position:relative; width:100%; height:0px; padding-bottom:62.222%"><iframe allow="fullscreen" allowfullscreen height="100%" src="https://streamable.com/e/jzhzr1?loop=0" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe></div>
+
+    
     
     <p>本工具旨在協助同學練習寫作卷和閱讀卷，並提供課外書籍討論。以下是主要功能：</p>
     <table>
@@ -524,7 +520,7 @@
     <!-- 整合拓展容器 -->
     <div id="expandContainer" class="box" style="display: none;">
         <h2>整合拓展</h2>
-        <img src="https://i.ibb.co/DfqcS96d/image.jpg" alt="整合拓展圖片" style="max-width:100%; height:auto; margin-bottom:10px;">
+       <img src="https://i.ibb.co/Ngt8D5xm/image.jpg" alt="整合拓展圖片" style="max-width:100%; height:auto; margin-bottom:10px;">
         <label for="expandFunction">選擇功能：</label>
         <select id="expandFunction" onchange="toggleExpandFunction()">
             <option value="comment">點評</option>
@@ -690,14 +686,15 @@
     <script>
 
 
-const API_KEYS = [
-            "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",
-            "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",
-            "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"
+
+        
+        // API 配置信息
+        const API_KEYS = [
+            "sk-buNeXlY8PafDWYpau2OPDA"
         ];
         let currentApiKeyIndex = 0;
-        const API_URL = "https://openrouter.ai/api/v1/chat/completions";
-        const MODEL = "deepseek/deepseek-r1:free";
+        const API_URL = "https://chatapi.akash.network/api/v1/chat/completions";
+        const MODEL = "DeepSeek-R1";
 
 
 const audio = document.getElementById('audio');
