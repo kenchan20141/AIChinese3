@@ -530,6 +530,8 @@
 <div class="box">
     <h2>選擇工具：</h2>
     <button id="manuscriptPaperBtn">🖥智能原稿紙</button>
+       <button id="aiGeneratorBtn" style="background-color: #008080;">📝AI擬題</button>
+    <button id="zhuoyuBtn" style="background-color: #800000;">✏️琢玉</button>
     <button id="ocrBtn" style="background-color: #fd7e14;">✍手寫文字轉換電腦文字</button>
 </div>
     
@@ -808,7 +810,7 @@
     </div>
     <button class="hide-btn" id="hide-player">🔽</button>
 </div>
-<button id="show-player">🎵</button>
+<button id="show-player">🎹</button>
 <audio id="audio" preload="auto"></audio>
 
 
@@ -1065,12 +1067,24 @@ document.getElementById("manuscriptPaperBtn").addEventListener("click", function
     window.open("https://kenchan20141.github.io/manuscriptpaper/", "_blank");
 });
 
+  document.getElementById("aiGeneratorBtn").addEventListener("click", function() {
+    window.open("https://kenchan20141.github.io/generator/", "_blank");
+});
+
+         document.getElementById("zhuoyuBtn").addEventListener("click", function() {
+    window.open("https://kenchan20141.github.io/WCT/", "_blank");
+});
+
+
+
+        
         // 為「手寫文字轉換電腦文字」按鈕添加點擊事件處理函數
 document.getElementById("ocrBtn").addEventListener("click", function() {
     if (confirm("請小心保護個人私隱，上傳檔案前，必須先確認圖片或PDF頁面沒有透露任何個人資料，例如姓名和學校名稱等。")) {
         window.open("https://www.i2ocr.com/free-online-image-ocr", "_blank");
     }
 });
+        
         
         document.getElementById("booksBtn").addEventListener("click", function() {
             showContainer("booksContainer");
