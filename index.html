@@ -63,6 +63,20 @@
             }
         }
 
+        .snowflake {
+    position: absolute;
+    background-color: #e0f7fa;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+    0% { top: -10px; transform: translateX(0); }
+    50% { transform: translateX(20px); }
+    100% { top: 100vh; transform: translateX(0); }
+}
+
         
 /* 確保標題不被背景影響 */
 .title-container {
@@ -663,6 +677,7 @@ opacity: 0;
 </div>
        <button id="closeToolsBtn"><i class="fas fa-times"></i></button>
     </div>
+    <div id="snowContainer" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1001; pointer-events: none;"></div>
 </div>
     
    <!-- 範疇選擇 -->
@@ -954,23 +969,50 @@ document.getElementById("expandToolsBtn").addEventListener("click", function() {
     const buttons = document.querySelectorAll("#toolsList button");
     buttons.forEach((btn, index) => {
         btn.classList.add("tool-btn");
-        btn.style.animation = ""; // 恢復動畫設置
+        btn.style.animation = "";
         btn.style.animationDelay = `${index * 0.1}s`;
         setTimeout(() => {
             btn.style.opacity = "1";
         }, index * 200);
     });
+    const snowContainer = document.getElementById("snowContainer");
+    snowContainer.style.display = "block";
+    createSnowflakes(50); // 創建50個雪花
+    setTimeout(() => {
+        snowContainer.style.display = "none";
+    }, 10000); // 3秒後隱藏雪花容器
 });
 
 // 關閉工具按鈕的點擊事件
 document.getElementById("closeToolsBtn").addEventListener("click", function() {
     document.getElementById("toolsContainer").style.display = "none";
+    document.getElementById("snowContainer").style.display = "none";
     const buttons = document.querySelectorAll("#toolsList button");
     buttons.forEach(btn => {
         btn.style.opacity = "0";
-        btn.style.animation = "none"; // 重置動畫狀態
+        btn.style.animation = "none";
     });
 });
+
+        function createSnowflakes(count) {
+    const snowContainer = document.getElementById("snowContainer");
+    snowContainer.innerHTML = "";
+    for (let i = 0; i < count; i++) {
+        const snowflake = document.createElement("div");
+        snowflake.className = "snowflake";
+        const left = Math.random() * 100;
+        const duration = Math.random() * 5 + 5;
+        const delay = Math.random() * 5;
+        const size = Math.random() * 10 + 5;
+        snowflake.style.left = `${left}%`;
+        snowflake.style.animationDuration = `${duration}s`;
+        snowflake.style.animationDelay = `${delay}s`;
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+        snowflake.style.opacity = Math.random() * 0.5 + 0.5;
+        snowContainer.appendChild(snowflake);
+    }
+}
 
 
 
