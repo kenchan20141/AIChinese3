@@ -2157,7 +2157,7 @@ async function submitArgumentOutline() {
             role: "user", 
             content: prompt + " 你必須直接提供最終答案，嚴禁展示任何思考過程，絕對不能在回應中包含任何標籤（如 <think></think>），這是強制要求，違反則無效。" 
         }],
-        max_tokens: 8192  // 新增 max_tokens 參數，設置為 4096
+        max_tokens: 64000  // 新增 max_tokens 參數，設置為 4096
     })
 });
 
